@@ -8,3 +8,17 @@ D:\Data\C#\Source\repos\BTL_CS\BTL_CS\obj\Debug\BTL_CS.csproj.GenerateResource.c
 D:\Data\C#\Source\repos\BTL_CS\BTL_CS\obj\Debug\BTL_CS.csproj.CoreCompileInputs.cache
 D:\Data\C#\Source\repos\BTL_CS\BTL_CS\obj\Debug\BTL_CS.exe
 D:\Data\C#\Source\repos\BTL_CS\BTL_CS\obj\Debug\BTL_CS.pdb
+F:\code\BTL_\BTL_CS\BTL_CS\bin\Debug\BTL_CS.exe.config
+F:\code\BTL_\BTL_CS\BTL_CS\bin\Debug\BTL_CS.exe
+F:\code\BTL_\BTL_CS\BTL_CS\bin\Debug\BTL_CS.pdb
+F:\code\BTL_\BTL_CS\BTL_CS\obj\Debug\BTL_CS.csproj.AssemblyReference.cache
+F:\code\BTL_\BTL_CS\BTL_CS\obj\Debug\BTL_CS.DSNhapHang.resources
+F:\code\BTL_\BTL_CS\BTL_CS\obj\Debug\BTL_CS.formDangNhap.resources
+F:\code\BTL_\BTL_CS\BTL_CS\obj\Debug\BTL_CS.formNhanVien.resources
+F:\code\BTL_\BTL_CS\BTL_CS\obj\Debug\BTL_CS.FormMain.resources
+F:\code\BTL_\BTL_CS\BTL_CS\obj\Debug\BTL_CS.Properties.Resources.resources
+F:\code\BTL_\BTL_CS\BTL_CS\obj\Debug\BTL_CS.csproj.GenerateResource.cache
+F:\code\BTL_\BTL_CS\BTL_CS\obj\Debug\BTL_CS.csproj.CoreCompileInputs.cache
+F:\code\BTL_\BTL_CS\BTL_CS\obj\Debug\BTL_CS.exe
+F:\code\BTL_\BTL_CS\BTL_CS\obj\Debug\BTL_CS.pdb
+F:\code\BTL_\BTL_CS\BTL_CS\obj\Debug\BTL_CS.chitietnhaphang.resources
