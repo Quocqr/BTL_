@@ -33,9 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,47 +53,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="chitietnhaphang.cs">
+    <Compile Include="from\chitietnhaphang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="chitietnhaphang.Designer.cs">
+    <Compile Include="from\chitietnhaphang.Designer.cs">
       <DependentUpon>chitietnhaphang.cs</DependentUpon>
     </Compile>
-    <Compile Include="databasschoNHandLH.cs" />
-    <Compile Include="DSNhapHang.cs">
+    <Compile Include="data\databasschoNHandLH.cs" />
+    <Compile Include="from\DSNhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DSNhapHang.Designer.cs">
+    <Compile Include="from\DSNhapHang.Designer.cs">
       <DependentUpon>DSNhapHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="formDangNhap.cs">
+    <Compile Include="from\formDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formDangNhap.Designer.cs">
+    <Compile Include="from\formDangNhap.Designer.cs">
       <DependentUpon>formDangNhap.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="chitietnhaphang.resx">
+    <Compile Include="from\InBaoCaoCTNH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="from\InBaoCaoCTNH.Designer.cs">
+      <DependentUpon>InBaoCaoCTNH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report\BaoCaoCTNH.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaoCaoCTNH.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="report\QuanLyBanGiayDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyBanGiayDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="from\chitietnhaphang.resx">
       <DependentUpon>chitietnhaphang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DSNhapHang.resx">
+    <EmbeddedResource Include="from\DSNhapHang.resx">
       <DependentUpon>DSNhapHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formDangNhap.resx">
+    <EmbeddedResource Include="from\formDangNhap.resx">
       <DependentUpon>formDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="formNhanVien.cs">
+    <Compile Include="from\formNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formNhanVien.Designer.cs">
+    <Compile Include="from\formNhanVien.Designer.cs">
       <DependentUpon>formNhanVien.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="formNhanVien.resx">
+    <EmbeddedResource Include="from\formNhanVien.resx">
       <DependentUpon>formNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Danhsachloaihang.cs">
+    <Compile Include="from\Danhsachloaihang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Danhsachloaihang.Designer.cs">
+    <Compile Include="from\Danhsachloaihang.Designer.cs">
       <DependentUpon>Danhsachloaihang.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
@@ -101,6 +124,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="from\InBaoCaoCTNH.resx">
+      <DependentUpon>InBaoCaoCTNH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -110,6 +136,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="report\BaoCaoCTNH.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BaoCaoCTNH.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -119,9 +149,24 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="report\QuanLyBanGiayDataSet.xsc">
+      <DependentUpon>QuanLyBanGiayDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="report\QuanLyBanGiayDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyBanGiayDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="report\QuanLyBanGiayDataSet.xss">
+      <DependentUpon>QuanLyBanGiayDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

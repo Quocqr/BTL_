@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.Drawing;
-
+using System.Configuration;
 namespace BTL_CS
 {
     internal class databasschoNHandLH
     {
-        private string sql = "server=MSI\\MSSQLSERVER01;Database=QuanLyBanGiay;User Id = Quoc; Password=Qsxcvbnm0129@;";
+        private string sql = ConfigurationManager.ConnectionStrings["db_qlbh"].ConnectionString;
         // lay du lieu cho datagridview thong qua su kien load form 
         public DataTable laydulieu()
         {
@@ -186,8 +186,8 @@ namespace BTL_CS
             return laydulieu();
 
         }
-        //                chi tiêt nhập hàng              ////
-        //ham chung cho PROCEDURE viewCTnhaphang
+                                              //                chi tiêt nhập hàng              ////
+        //ham chung cho PROCEDURE viewCTnhaphang---------------------------------------------------------
         public DataTable viewCTnhaphang(SqlConnection cmd, string MaNH, string MaSP, string TenSP, string SoLuong, string GiaNhap)
         {
             object kq = DBNull.Value;
@@ -212,7 +212,7 @@ namespace BTL_CS
             }
         }
 
-        //xuat du lieu
+        //xuat du lieu---------------------------------------------------------
         public DataTable laydulieuCTNH(string MaNH)
         {
             using (SqlConnection cmd = new SqlConnection(sql))
@@ -221,6 +221,7 @@ namespace BTL_CS
                 return viewCTnhaphang(cmd, MaNH, a, a, a, a);
             }
         }
+        //lay ten san pham -------------------------------------------------
         public DataTable tensanpham(string MaSP)
         {
             using (SqlConnection cmd = new SqlConnection(sql))
@@ -243,6 +244,74 @@ namespace BTL_CS
             }
 
         }
+        //them-----------------------------------------------------------------------------------------//
+        public void themctnhaphang(string masp ,string maNH,string soluong,string gianhap )
+        {
+           using(SqlConnection cmd= new SqlConnection(sql))
+            {
+                cmd.Open();
+                using(SqlCommand drd=new SqlCommand("INSERT INTO tblChiTietNhapHang (MaSP, MaNH, SoLuong, GiaNhap,ThanhTien) VALUES(@MaSP, @MaNH, @SoLuong,@GiaNhap, 0); ", cmd))
+                {
+                    drd.CommandType = CommandType.Text;
+                    drd.Parameters.AddWithValue("@MaSP", masp);
+                    drd.Parameters.AddWithValue("@MaNH", maNH);
+                    drd.Parameters.AddWithValue("@SoLuong", soluong);
+                    drd.Parameters.AddWithValue("@GiaNhap", gianhap);
+                    drd.ExecuteNonQuery();
+                }
+            }
+        }
+        // sua lai chi tiet nhap hang ------------------------------------------------
+        public void SuaCTnhaphang(string masp, string maNH, string soluong, string gianhap)
+        {
+            using (SqlConnection cmd = new SqlConnection(sql))
+            {
+                cmd.Open();
+                using (SqlCommand drd = new SqlCommand("UpdatetblChiTietNhapHang ", cmd))
+                {
+                    drd.CommandType = CommandType.StoredProcedure;
+                    drd.Parameters.AddWithValue("@MaSP", string.IsNullOrEmpty(masp) ? (object)DBNull.Value : masp);
+                    drd.Parameters.AddWithValue("@MaNH", string.IsNullOrEmpty(maNH) ? (object)DBNull.Value : maNH);
+                    drd.Parameters.AddWithValue("@SoLuong", string.IsNullOrEmpty(soluong) ? (object)DBNull.Value : soluong);
+                    drd.Parameters.AddWithValue("@GiaNhap", string.IsNullOrEmpty(gianhap) ? (object)DBNull.Value : gianhap);
+                    drd.ExecuteNonQuery();
+                }
+                cmd.Close();
+            }
+        }
+        // xoa ----------------------------------------------
+        public void DeleteCTnhaphang(string masp, string maNH)
+        {
+            using(SqlConnection cmd = new SqlConnection(sql))
+            {
+                cmd.Open();
+                using (SqlCommand drd = new SqlCommand("DELETE FROM tblChiTietNhapHang WHERE MaNH=@MaNH AND MaSP=@MaSP; ", cmd))
+                {
+                    drd.CommandType = CommandType.Text;
+                    drd.Parameters.AddWithValue("@MaNH",  maNH);
+                    drd.Parameters.AddWithValue("@MaSP", masp);
+                    drd.ExecuteNonQuery();
 
+                }
+                cmd.Close();
+            }
+        }
+        //tim kiem chi tiet don hang 
+        public DataTable seachCTnhaphang(string masp, string maNH, string tensp,bool a,bool b )
+        {
+            string kp = string.Empty;
+            using (SqlConnection cmd = new SqlConnection(sql))
+            {
+                if (a == true && b == false)
+                {
+                  return viewCTnhaphang(cmd, maNH, masp, kp, kp, kp);
+                }
+                if(a==false && b == true)
+                {
+                  return  viewCTnhaphang(cmd, maNH, kp, tensp, kp, kp);
+                }
+            }
+                return laydulieuCTNH(maNH);
+        }
     }
 }

@@ -113,6 +113,7 @@ namespace BTL_CS
                 MessageBox.Show(data);
             }
             chitietnhaphang chitietnhaphang = new chitietnhaphang(data);
+            
             chitietnhaphang.Show();
         }
         //
