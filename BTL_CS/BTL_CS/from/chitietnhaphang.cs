@@ -13,10 +13,12 @@ namespace BTL_CS
     public partial class chitietnhaphang : Form
     {
         private string data;
-        public chitietnhaphang(string data)
+        private FormMain main;
+        public chitietnhaphang(string data, FormMain main)
         {
             InitializeComponent();
             this.data = data;
+            this.main = main;
         }
         databasschoNHandLH db = new databasschoNHandLH();
 
@@ -97,7 +99,8 @@ namespace BTL_CS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            InBaoCaoCTNH from = new InBaoCaoCTNH(data);
+            InBaoCaoCTNH from = new InBaoCaoCTNH(data,main);
+            from.MdiParent = main;
             from.Show();
         }
     }

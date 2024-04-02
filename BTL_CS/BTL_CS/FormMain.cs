@@ -19,5 +19,12 @@ namespace BTL_CS
             InitializeComponent();
         }
         public string abc;
+
+        private void hóaĐơnNhậpHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DSNhapHang f1 = new DSNhapHang(this);
+            f1.MdiParent = this;
+            f1.Show();
+        }
     }
 }

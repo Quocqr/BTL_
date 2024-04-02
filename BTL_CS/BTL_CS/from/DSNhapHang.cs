@@ -14,9 +14,11 @@ namespace BTL_CS
 {
     public partial class DSNhapHang : Form
     {
-        public DSNhapHang()
+        private FormMain parentForm;
+        public DSNhapHang(FormMain parentForm)
         {
             InitializeComponent();
+            this.parentForm = parentForm;
         }
         public string data { get; set; }
         
@@ -112,8 +114,8 @@ namespace BTL_CS
                 // Hiển thị dữ liệu
                 MessageBox.Show(data);
             }
-            chitietnhaphang chitietnhaphang = new chitietnhaphang(data);
-            
+            chitietnhaphang chitietnhaphang = new chitietnhaphang(data,parentForm);
+            chitietnhaphang.MdiParent = parentForm;
             chitietnhaphang.Show();
         }
         //

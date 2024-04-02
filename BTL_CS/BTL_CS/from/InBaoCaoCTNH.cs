@@ -17,10 +17,12 @@ namespace BTL_CS
     public partial class InBaoCaoCTNH : Form
     {
         private string data;
-        public InBaoCaoCTNH(string data)
+        private FormMain main;
+        public InBaoCaoCTNH(string data, FormMain main)
         {
             InitializeComponent();
             this.data = data;
+            this.main = main;
 
         }
         private string sql = ConfigurationManager.ConnectionStrings["db_qlbh"].ConnectionString;
